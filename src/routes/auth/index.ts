@@ -6,11 +6,13 @@ import User from '../../models/User';
 dotenv.config();
 const router = Router();
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res): Promise<void> => {
   const { email, password } = req.body;
   const user: any = await User.findOne({ email });
+
   if (!user || !(await user.matchPassword(password))) {
-    return res.status(401).json({ message: 'Invalid credentials' });
+    res.status(401).json({ message: 'Invalid credentials' });
+    return; // stop further execution without returning the response
   }
 
   const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET!, {
