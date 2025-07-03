@@ -4,6 +4,8 @@
   "description": "Assignment 2 for CSCI4177",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node src/app.ts",
+    "dev": "nodemon src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,9 +21,11 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.10",
+    "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
